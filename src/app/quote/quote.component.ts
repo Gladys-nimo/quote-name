@@ -29,7 +29,7 @@ deleteQuote(isComplete,index){
 addNewQuote(quote){
   let quoteLength = this.quotes.length;
   quote.id = quoteLength+1;
-  quote.postedDate = new Date(quote.postedDate)
+  quote.datePosted = new Date(quote.datePosted)
   this.quotes.push(quote)
 }
 

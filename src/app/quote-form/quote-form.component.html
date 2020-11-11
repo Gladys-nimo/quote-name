@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
     <h2 class="text-center">Create a new Quote</h2>
     <hr>
     <form (ngSubmit)='submitQuote' #quoteForm='ngForm'>
@@ -7,29 +7,29 @@
   
             <label for="name">Name</label>
             <input type="text" required class="form-control" id="name" [(ngModel)]="newQuote.name" name="name" #name='ngModel' required>
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
                <p>name is required</p>
             </div>
-            
+             -->
          </div>
         <div class="form-group">
   
             <label for="quote">Quote</label>
             <textarea class="form-control" id="quote" rows="4" [(ngModel)]="newQuote.quote" name="quote" #quote="ngModel" required></textarea>
   
-            <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+            <!-- <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
                <p>Quote is required</p>
-            </div>
+            </div> -->
         </div>
         <div class="form-group">
   
             <label for="publisher">publisher</label>
             <input type="text" required class="form-control" id="name" [(ngModel)]="newQuote.publisher" name="name" #publisher='ngModel'>
             
-            <div [hidden]="publisher.valid || publisher.pristine" class="alert alert-danger">
+            <!-- <div [hidden]="publisher.valid || publisher.pristine" class="alert alert-danger">
                <p>publisher is required</p>
             </div>
-       
+        -->
         </div>
        
 
@@ -37,14 +37,17 @@
         <div class="form-group">
             <label for="posted">posted</label>
              <input type='date' id="posted" [(ngModel)]="newQuote.datePosted" name="datePosted" #datePosted="ngModel" required> 
-  <div [hidden]="datePosted.valid || datePosted.pristine" class="alert alert-danger">
+  <!-- <div [hidden]="datePosted.valid || datePosted.pristine" class="alert alert-danger">
 
-  </div>
+  </div> -->
         </div>
-        <button type="submit" class="btn btn-success">Add Quote</button>
+        <button type="submit" class="btn btn-success">Post</button>
     </form>
 
-  </div>
-   Display {{newQuote.name}} {{newQuote.quote}} {{newQuote.publisher}}
+ 
+  name :{{newQuote.name}} 
+  quote: {{newQuote.quote}} 
+  publisher:{{newQuote.publisher}}
+  posted: {{newQuote.datePosted}}
   
    

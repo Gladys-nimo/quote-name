@@ -14,9 +14,9 @@
     <div class="row" *ngFor="let quote of quotes; let i = 'index';" >
      <div [appHighlight] = 'quote.highest'>
         <div>
-       <p>{{quote.name}}</p>
-  <p>{{quote.datePosted|datePost}}</p>
-         <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button> -
+       <p>{{quote.name}}</p><p>{{quote.datePosted|datePost}}</p>
+ 
+          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button> -
     
          <app-quote-details *ngIf='quote.showDetails' class="quote-details" [quote]='quote'  [quotes]='qoutes'  (isComplete) = 'deleteQuote($event,i)' (toVote)='quoteVote($event,1)'></app-quote-details>
          

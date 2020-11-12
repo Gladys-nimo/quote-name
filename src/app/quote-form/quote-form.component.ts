@@ -1,6 +1,6 @@
 // import { EventEmitter } from 'protractor';
 import { Quote } from './../quote';
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit,  Input} from '@angular/core';
 
 @Component({
   selector: 'app-quote-form',
@@ -10,12 +10,12 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 export class QuoteFormComponent implements OnInit {
 
 
-newQuote = new Quote(0,"name","quote","publisher",new Date(),0,0);
-@Output() addQuote = new EventEmitter<Quote>();
+@Input() addNewQuote: Function;
+// @Output() addQuote = new EventEmitter<Quote>();
 
-submitQuote(){
-  this.addQuote.emit(this.newQuote);
-}
+// submitQuote(){
+  // this.addQuote.emit(this.newQuote);
+
   constructor() { }
 
   ngOnInit(): void {

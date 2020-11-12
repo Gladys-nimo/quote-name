@@ -2,6 +2,15 @@
     <p> quote: {{quote.quote}}</p>
     <p> publisher: {{quote.publisher}}</p>
      <p>This quote was posted {{quote.datePosted|datePost}} days ago</p>
+
+
+
+     <div>
+        <button class="btn btn-primary"  (click)='vote(true)' (click)='quoteHighestLikes()'>{{quote.likes}}</button> 
+        <button class="btn btn-danger" (click)='vote(false)' >{{quote.dislikes}}</button>
+    
+     </div>
+ 
   
     <button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
     

@@ -1,53 +1,56 @@
 
     <h2 class="text-center">Create a new Quote</h2>
-    <hr>
-    <form (ngSubmit)='submitQuote' #quoteForm='ngForm'>
+    
+    <form (ngSubmit)='addNewQuote(name.value,quote.value,publisher.value)' >
 
         <div class="form-group">
   
             <label for="name">Name</label>
-            <input type="text" required class="form-control" id="name" [(ngModel)]="newQuote.name" name="name" #name='ngModel' required>
-            <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-               <p>name is required</p>
-            </div>
-             -->
+            <input type="text" required class="form-control" id="name"   #name required>
+           
          </div>
         <div class="form-group">
   
             <label for="quote">Quote</label>
-            <textarea class="form-control" id="quote" rows="4" [(ngModel)]="newQuote.quote" name="quote" #quote="ngModel" required></textarea>
-  
-            <!-- <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
-               <p>Quote is required</p>
-            </div> -->
-        </div>
-        <div class="form-group">
+            <textarea class="form-control" id="quote" rows="4"   #quote required></textarea>
+  </div>
+  <div class="form-group">
   
             <label for="publisher">publisher</label>
-            <input type="text" required class="form-control" id="name" [(ngModel)]="newQuote.publisher" name="name" #publisher='ngModel'>
-            
-            <!-- <div [hidden]="publisher.valid || publisher.pristine" class="alert alert-danger">
-               <p>publisher is required</p>
+            <input type="text" required class="form-control" id="name" #publisher required>
             </div>
-        -->
-        </div>
-       
-
-
-        <div class="form-group">
-            <label for="posted">posted</label>
-             <input type='date' id="posted" [(ngModel)]="newQuote.datePosted" name="datePosted" #datePosted="ngModel" required> 
-  <!-- <div [hidden]="datePosted.valid || datePosted.pristine" class="alert alert-danger">
-
-  </div> -->
-        </div>
-        <button type="submit" class="btn btn-success">Post</button>
-    </form>
-
- 
-  name :{{newQuote.name}} 
-  quote: {{newQuote.quote}} 
-  publisher:{{newQuote.publisher}}
-  posted: {{newQuote.datePosted}}
   
-   
+  <div class="form-group">
+            <label for="posted">posted</label>
+             <input type='date' id="posted"  name="datePosted" #datePosted required> 
+         </div> 
+       
+       
+         <button type="submit" class="btn btn-success">Post</button>
+    </form> 
+
+
+
+<!-- <div [hidden]="datePosted.valid || datePosted.pristine" class="alert alert-danger">="ngModel"
+[(ngModel)]="newDate.datePosted"
+  </div> -->
+ 
+ 
+  <!-- name :{{newQuote.name}}  -->
+  <!-- quote: {{newQuote.quote}}  -->
+  <!-- publisher:{{newQuote.publisher}} -->
+  <!-- posted: {{newQuote.datePosted}} -->
+  
+    <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+               <p>name is required</p>
+            </div>[(ngModel)]="newName.name"
+             -->
+            <!-- <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+               <p>Quote is required</p>="ngModel"
+            <!-- </div> [(ngModel)]="newQuote.quote"name="quote"
+        </div>
+                  <!-- <div [hidden]="publisher.valid || publisher.pristine" class="alert alert-danger">
+             
+  <!-- <p>publisher is required</p> -->
+            
+        

@@ -9,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class QuoteComponent implements OnInit {
 
   quotes: Quote[] = [
-    new Quote(1,'Gladys','Never say never','John Doe',new Date(2020,11,10),0,0),
-    new Quote(2,'Grace', 'proscrastintination is the thief of time', 'Luther KIng',new Date(2020,9,11),0,0),
-    new Quote(3,'John', 'everything is possible', 'Moses Bliss',new Date(2020,11,12),0,0),
+    new Quote(1,'Gladys','Never say never','John Doe',new Date(2020,11,10),0,0,false),
+    new Quote(2,'Grace', 'proscrastintination is the thief of time', 'Luther KIng',new Date(2020,9,11),0,0,false),
+    new Quote(3,'John', 'everything is possible', 'Moses Bliss',new Date(2020,11,12),0,0,false),
  ];
+
+ get addNewQuoteFunc() {
+  return this.addNewQuote.bind(this);
+}
+
  
  toggleDetails(index){
   this.quotes[index].showDetails = !this.quotes[index].showDetails;
@@ -26,11 +31,10 @@ deleteQuote(isComplete,index){
   }
 }
 
-addNewQuote(quote){
-  let quoteLength = this.quotes.length;
-  quote.id = quoteLength+1;
-  quote.datePosted = new Date(quote.datePosted)
-  this.quotes.push(quote)
+addNewQuote(name:string,quote:string,publisher:string){
+  let number  = this.quotes.length + 1;
+  let date = new Date();
+    this.quotes.push( new Quote(number,name,quote,publisher,date,0,0,false));
 }
 
 
@@ -41,16 +45,31 @@ completeQuote(isComplete, index){
   }
 }
 
-upVotes:number=0;
-upVote(){
-  this.upVotes=this.upVotes+1;
 
+quoteVote(vote:boolean,index) {
+  if(vote) {
+      this.quotes[index].likes += 1;
+      this.getHighest();
+  } else {
+      this.quotes[index].dislikes += 1;
+  }
 }
-downVotes:number=0;
-downVote(){
-  this.downVotes=this.downVotes-1;
+getHighest(){
+  let highest = 0;
+  let highestQuote: Quote;
+  for(let quote of this.quotes){
+      if(quote.likes > highest){
+          highest = quote.likes;
+          highestQuote = quote;
+      }
+      if(quote.id === highestQuote.id){
+          quote.highest = true;
+      }else{
+          quote.highest = false;
+      }
+  }
+}
 
-}
 
 
   constructor() { }
@@ -59,3 +78,6 @@ downVote(){
   }
 
 }
+// quote.number = quoteLength+1;
+  // qet
+  // quote.datePosted = new Date(quote.datePosted)

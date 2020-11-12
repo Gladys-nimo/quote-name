@@ -4,26 +4,20 @@
  <div class="row">
      <div class="col-md-6">
  <div *ngFor='let quote of quotes;let i = index'>
-        
-    <div>
-     <p>{{quote.name}} {{quote.maxlikes}} posted on {{quote.datePosted|date}}</p>
-            <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
-      <app-quote-details *ngIf='quote.showDetails' [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-quote-details>
+     <!-- <div [appHighlight] = 'quote.highest'></div> -->
+     <p>{{quote.name}}  posted on {{quote.datePosted|date}}</p>
+        <div>
+          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+      <app-quote-details class="quote-details" [quote]='quote'  (isComplete) = 'deleteQuote($event,i)' (toVote)='quoteVote($event,1)'></app-quote-details>
        
     </div>
        
     </div>
      </div>
 <div class="col-md-6">
-<app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>  
+<app-quote-form [addNewQuote]='addNewQuoteFunc'></app-quote-form>  
 </div>
     </div>
-    <div>
-        <button class="btn btn-primary" (click)='upVote()'> upVote <span>{{upVotes}}</span></button>
-        
-        <button class="btn btn-danger" (click)='downVote()'> downVote <span>{{downVotes}}</span></button>
-    
+   
      </div>
- 
-     </div>
-           
+         <!-- [quotes]='qoutes'    -->

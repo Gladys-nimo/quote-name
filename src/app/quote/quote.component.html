@@ -1,23 +1,42 @@
-
 <div class="container">
-    <h1>My quotes</h1>
- <div class="row">
-     <div class="col-md-6">
- <div *ngFor='let quote of quotes;let i = index'>
-     <!-- <div [appHighlight] = 'quote.highest'></div> -->
-     <p>{{quote.name}}  posted on {{quote.datePosted|date}}</p>
-        <div>
-          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
-      <app-quote-details class="quote-details" [quote]='quote'  (isComplete) = 'deleteQuote($event,i)' (toVote)='quoteVote($event,1)'></app-quote-details>
-       
-    </div>
-       
-    </div>
+
+<h1>quotes</h1>
+
+<div class="row">
+ <div class="quote-form col-md-6">
+         <app-quote-form [addNewQuote]='addNewQuoteFunc'></app-quote-form>  
+
      </div>
+    
 <div class="col-md-6">
-<app-quote-form [addNewQuote]='addNewQuoteFunc'></app-quote-form>  
-</div>
-    </div>
-   
+     
+
+    <div class="row" *ngFor="let quote of quotes; let i = 'index';" >
+     <div [appHighlight] = 'quote.highest'>
+        <div>
+       <p>{{quote.name}}</p>
+  <p>{{quote.datePosted|datePost}}</p>
+         <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button> -
+    
+         <app-quote-details *ngIf='quote.showDetails' class="quote-details" [quote]='quote'  [quotes]='qoutes'  (isComplete) = 'deleteQuote($event,i)' (toVote)='quoteVote($event,1)'></app-quote-details>
+         
+    
      </div>
-         <!-- [quotes]='qoutes'    -->
+     </div>
+    
+ </div>
+    
+       
+        
+ 
+</div>
+   
+  
+     </div> 
+      
+     </div>
+   
+   
+   
+
+          

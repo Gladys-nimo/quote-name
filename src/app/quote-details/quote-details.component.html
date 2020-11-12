@@ -3,16 +3,14 @@
     <p> publisher: {{quote.publisher}}</p>
      <p>This quote was posted {{quote.datePosted|datePost}} days ago</p>
 
-
-
-     <div>
-        <button class="btn btn-primary"  (click)='vote(true)' (click)='quoteHighestLikes()'>{{quote.likes}}</button> 
-        <button class="btn btn-danger" (click)='vote(false)' >{{quote.dislikes}}</button>
+<div class="like-buttons">
+        <i class="like-icon far fa fa-thumbs-up"  (click)='vote(true)' (click)='quoteHighestLikes()'>{{quote.likes}}</i> 
+        <i class="dislike-icon far fa-thumbs-down" (click)='vote(false)' >{{quote.dislikes}}</i>
+     <button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
     
      </div>
  
   
-    <button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete Quote</button>
-    
+   
     
      

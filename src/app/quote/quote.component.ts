@@ -18,10 +18,18 @@ export class QuoteComponent implements OnInit {
   return this.addNewQuote.bind(this);
 }
 
- 
- toggleDetails(index){
+  toggleDetails(index){
   this.quotes[index].showDetails = !this.quotes[index].showDetails;
 }
+
+
+completeQuote(isComplete, index){
+  if (isComplete) {
+    this.quotes.splice(index,1);
+ }
+}
+
+
 deleteQuote(isComplete,index){
   if (isComplete){
     let toDelete=confirm('Are you sure you want to delete quote')
@@ -35,14 +43,6 @@ addNewQuote(name:string,quote:string,publisher:string){
   let number  = this.quotes.length + 1;
   let date = new Date();
     this.quotes.push( new Quote(number,name,quote,publisher,date,0,0,false));
-}
-
-
-
-completeQuote(isComplete, index){
-  if (isComplete) {
-    this.quotes.splice(index,1);
-  }
 }
 
 
@@ -81,3 +81,4 @@ getHighest(){
 // quote.number = quoteLength+1;
   // qet
   // quote.datePosted = new Date(quote.datePosted)
+// 
